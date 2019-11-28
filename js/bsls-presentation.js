@@ -1,62 +1,49 @@
-function generate(){
-    let noOfRows=document.getElementById('rownumber').value;
-    let noOfCols=document.getElementById('colnumber').value;
-    var cellData=document.getElementById('celldata').value;
-    var cellHeight=document.getElementById('cellheight').value;
-    var cellWidth=document.getElementById('cellwidth').value;
-    
-    myTable=document.getElementById("myTable");
-    tableBody=document.getElementById("myTBody");
-    tableBody.innerHTML="";
-    for(var y=0; y<noOfRows; y++){
-        var tr=document.createElement('TR');
+function generate() {
+    let noOfRows = document.getElementById('rownumber').value;
+    let noOfCols = document.getElementById('colnumber').value;
+    let cellData = document.getElementById('celldata').value;
+    let cellHeight = document.getElementById('cellheight').value;
+    let cellWidth = document.getElementById('cellwidth').value;
+    let tableBody = document.getElementById("myTBody");
+    tableBody.innerHTML = "";
+    for (let y = 0; y < noOfRows; y++) {
+        let tr = document.createElement('TR');
         tableBody.appendChild(tr);
-        for(var x=0; x<noOfCols; x++){
-            var td = document.createElement('TD');
-            if(cellHeight){
-                td.height=cellHeight;
-            }else{
-                td.height=10;
+        for (let x = 0; x < noOfCols; x++) {
+            let td = document.createElement('TD');
+            if (cellHeight) {
+                td.height = cellHeight;
+            } else {
+                td.height = 10;
             }
-            if(cellWidth){
+            if (cellWidth) {
                 td.width = cellWidth;
-            }else{
+            } else {
                 td.width = 10;
             }
-            var cellID = "cell [" + x + ", " + y + "]";
-            td.setAttribute("id", cellID.toString());
-
-            td.addEventListener("click", cellClicked(cellID.toString()) );
-            td.addEventListener("mouseover", cellMouseOver(cellID.toString()) );
-            if(cellData){
+            let cellID = "cell [" + x + ", " + y + "]";
+            if (cellData) {
                 td.appendChild(document.createTextNode(cellData));
-            }else{
+            } else {
                 td.appendChild(document.createTextNode("Cell " + x + "," + y));
             }
-            
             tr.appendChild(td);
-
+            td.setAttribute("id", cellID.toString());
+            td.addEventListener("click", cellClicked);
+            td.addEventListener("mouseover", cellMouseOver);
         }
     }
-    
 }
-function cellMouseOver(id){
-    console.log(id)
-    var selColor=document.getElementById('sel_color').value;
-    if(id){
-        document.getElementById(id).style.backgroundColor =selColor;
-    }
-    
+
+function cellMouseOver() {
+    this.style.backgroundColor = document.getElementById('sel_color').value;
 }
-function cellClicked(id){
-    if(id){
-        document.getElementById(id).style.backgroundColor ="white";
-    }
-    
+
+function cellClicked() {
+    this.style.backgroundColor = "white";
 }
- 
-function clear_table(){
-   
-    tableBody=document.getElementById("myTBody");
-    tableBody.innerHTML="";
+
+function clear_table() {
+    let tableBody = document.getElementById("myTBody");
+    tableBody.innerHTML = "";
 }
