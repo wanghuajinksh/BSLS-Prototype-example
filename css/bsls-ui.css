@@ -1,0 +1,22 @@
+.line{
+    margin-bottom: 20px;
+}
+.clearfix{
+    clear: both;
+}
+input{
+    height: 24px;
+}
+label{
+    font-weight: bold;
+}
+#sec_main{
+    padding:60px;
+}
+table, td {
+    border: 1px solid #444343;
+    text-align: center;
+}
+table{
+    border-collapse: collapse;
+}

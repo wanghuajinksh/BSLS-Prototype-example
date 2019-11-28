@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prototype Learning Tool</title>
+    <link rel="stylesheet" href="css/bsls-ui.css">
+    <script src="js/bsls-presentation.js"></script>
+</head>
+
+<body>
+    <section id="sec_main">
+        <h1>Test A2</h1>
+        <br>
+        <div class="line">
+            <label>No. of Cols</label> <input type="number" id="colnumber" min="1"> &nbsp;&nbsp;&nbsp;&nbsp; <label>No. of
+                Rows</label> <input type="number" id="rownumber" min="1">
+        </div>
+        <div class="clearfix"></div>
+        <div class="line">
+            <label>Sample Cell Data</label> <input type="text" id="celldata"> &nbsp;&nbsp;&nbsp; <label>Cell Height(in
+                pixels)</label> <input type="number" id="cellheight"> &nbsp;&nbsp;&nbsp;&nbsp;<label> Cell Width(in
+                pixels)</label><input type="number" id="cellwidth">
+            &nbsp;&nbsp;&nbsp;<label>Cell Background Color</label>
+            <select id="sel_color">
+                <option value="black">black</option>
+                <option value="white">white</option>
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+                <option value="yellow">yellow</option>
+                <option value="purple">purple</option>
+                <option value="cyan">cyan</option>
+                <option value="pink">orange</option>
+            </select>
+        </div>
+        <div class="clearfix"></div>
+        <div class="line">
+            <input type="button" value="Generate Table" id="btn_generate" onclick="generate()"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="Clear Table" id="btn_clear" onclick="clear_table()">
+        </div>
+        <hr />
+        <table id="myTable">
+            <tbody id="myTBody"></tbody>
+        </table>
+    </section>
+</body>
+
+</html>
